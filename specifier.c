@@ -33,6 +33,10 @@ void specifier(char *spec)
 		break;
 	case '%':
 		break;
+	case 'r':
+		break;
+	case 'R':
+		break;
 
 	default:
 		break;
