@@ -36,6 +36,7 @@ void specifier(const char *spec, va_list *ptr)
 	case 'n':
 		break;
 	case '%':
+		_putchar('%');
 		break;
 	case 'r':
 		puts_rev(va_arg(*ptr, char *));
