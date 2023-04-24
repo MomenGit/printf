@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * rot13 - encodes a string using rot13
@@ -11,6 +12,9 @@ void rot13(char *str)
 {
 	int i;
 	char tmp;
+
+	if (str == NULL)
+		return;
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
