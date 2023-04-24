@@ -1,8 +1,11 @@
-void specifier(char *spec)
+#include "main.h"
+
+void specifier(const char *spec, va_list *ptr)
 {
-	switch (spec[1])
+	switch (spec[0])
 	{
 	case 'c':
+		_putchar(va_arg(*ptr, int));
 		break;
 	case 'd':
 	case 'i':
@@ -20,6 +23,7 @@ void specifier(char *spec)
 	case 'o':
 		break;
 	case 's':
+		_puts(va_arg(*ptr, char *));
 		break;
 	case 'u':
 		break;
@@ -34,8 +38,10 @@ void specifier(char *spec)
 	case '%':
 		break;
 	case 'r':
+		puts_rev(va_arg(*ptr, char *));
 		break;
 	case 'R':
+		rot13(va_arg(*ptr, char *));
 		break;
 
 	default:

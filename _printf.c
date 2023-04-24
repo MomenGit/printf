@@ -2,6 +2,16 @@
 #include <stdarg.h>
 #include <stdlib.h>
 
+/**
+ * _printf - Write formatted output to stdout.
+ *
+ * This function is a possible cancellation point and therefore not
+ * marked with __THROW.
+ *
+ * @format: ..
+ * @...: ...
+ * Return: ...
+ */
 int _printf(const char *format, ...)
 {
 	int i;
@@ -16,7 +26,10 @@ int _printf(const char *format, ...)
 		if (format[i] != '%')
 			_putchar(format[i]);
 		else
-			specifier(length(precision(width(flagger(&format[i + 1])))));
+		{
+			i++;
+			specifier(&format[i], &arg_ptr);
+		}
 	}
 
 	va_end(arg_ptr);
