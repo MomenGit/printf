@@ -8,13 +8,13 @@
  * Return: On success the encoded string.
  * On error, .
  */
-void rot13(char *str)
+int rot13(char *str)
 {
 	int i;
 	char tmp;
 
 	if (str == NULL)
-		return;
+		return (0);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -28,4 +28,6 @@ void rot13(char *str)
 			break;
 		}
 	}
+
+	return (i - 1);
 }

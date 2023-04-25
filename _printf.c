@@ -14,13 +14,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
+	int i, count;
 	va_list arg_ptr;
 
 	if (format == NULL)
 		return (0);
 
 	va_start(arg_ptr, format);
+	count = 0;
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
@@ -28,10 +29,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			specifier(&format[i], &arg_ptr);
+			count += specifier(&format[i], &arg_ptr) - 1;
 		}
 	}
 
 	va_end(arg_ptr);
-	return (i - 1);
+	count += i - 1;
+	return (count);
 }

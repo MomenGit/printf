@@ -4,18 +4,20 @@
  * puts_rev - prints a string, in reverse, followed by a new line
  * @s: string to be printed
  */
-void puts_rev(char *s)
+int puts_rev(char *s)
 {
-	int len;
+	int len, count;
 
 	if (s == NULL)
-		return;
+		return (0);
 
-	len = sizeof(s) - 2;
-
-	while (len >= 0)
+	len = sizeof(s) - 1;
+	count = len - 1;
+	while (count >= 0)
 	{
-		_putchar(s[len]);
-		len--;
+		_putchar(s[count]);
+		count--;
 	}
+
+	return (len);
 }
