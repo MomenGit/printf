@@ -1,7 +1,10 @@
 #include "main.h"
+
 /**
  * print_number - description
  * @n: input integer
+ *
+ * Return: count of digits printed.
  */
 int print_number(int n)
 {
@@ -10,7 +13,7 @@ int print_number(int n)
 	i = 10;
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		n = -n;
 	}
 	count = 0;
@@ -22,7 +25,7 @@ int print_number(int n)
 		{
 			i = i / 10;
 			j = n / i;
-			putchar('0' + ((j < 10) ? j : 1));
+			_putchar('0' + ((j < 10) ? j : 1));
 			n = n % i;
 		}
 		count++;
