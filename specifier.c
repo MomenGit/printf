@@ -1,11 +1,21 @@
 #include "main.h"
 
-void specifier(const char *spec, va_list *ptr)
+/**
+ * specifier - ...
+ *
+ * @spec: ...
+ * @ptr: ...
+ * Return: int
+ */
+int specifier(const char *spec, va_list *ptr)
 {
+	int count;
+
+	count = 0;
 	switch (spec[0])
 	{
 	case 'c':
-		_putchar(va_arg(*ptr, int));
+		count = _putchar(va_arg(*ptr, int)) + 1;
 		break;
 	case 'd':
 	case 'i':
@@ -24,8 +34,30 @@ void specifier(const char *spec, va_list *ptr)
 	case 'o':
 		break;
 	case 's':
-		_puts(va_arg(*ptr, char *));
+		count = _puts(va_arg(*ptr, char *));
 		break;
+	default:
+		count = specifier2(spec, ptr);
+		break;
+	}
+
+	return (count - 1);
+}
+
+/**
+ * specifier2 - ...
+ *
+ * @spec: ...
+ * @ptr: ...
+ * Return: int
+ */
+int specifier2(const char *spec, va_list *ptr)
+{
+	int count;
+
+	count = 0;
+	switch (spec[0])
+	{
 	case 'u':
 		break;
 	case 'x':
@@ -37,16 +69,18 @@ void specifier(const char *spec, va_list *ptr)
 	case 'n':
 		break;
 	case '%':
-		_putchar('%');
+		count = _putchar('%') + 1;
 		break;
 	case 'r':
-		puts_rev(va_arg(*ptr, char *));
+		count = puts_rev(va_arg(*ptr, char *));
 		break;
 	case 'R':
-		rot13(va_arg(*ptr, char *));
+		count = rot13(va_arg(*ptr, char *));
 		break;
-
 	default:
+		count = _putchar(spec[-1]) + _putchar(spec[0]) + 1;
 		break;
 	}
+
+	return (count - 1);
 }

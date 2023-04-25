@@ -1,18 +1,25 @@
 #include "main.h"
-
+#include <stdlib.h>
 /**
  * puts_rev - prints a string, in reverse, followed by a new line
  * @s: string to be printed
+ *
+ * Return: length of printed string
  */
-void puts_rev(char *s)
+int puts_rev(char *s)
 {
-	int len;
+	int len, count;
 
-	len = sizeof(s) - 2;
+	if (s == NULL)
+		return (0);
 
-	while (len >= 0)
+	len = sizeof(s) - 1;
+	count = len - 1;
+	while (count >= 0)
 	{
-		_putchar(s[len]);
-		len--;
+		_putchar(s[count]);
+		count--;
 	}
+
+	return (len);
 }
