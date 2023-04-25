@@ -19,7 +19,7 @@ int specifier(const char *spec, va_list *ptr)
 		break;
 	case 'd':
 	case 'i':
-		numbers_printer(va_arg(*ptr ,int));
+		print_number(int n);
 		break;
 	case 'e':
 		break;
