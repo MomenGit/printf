@@ -10,7 +10,7 @@ int print_number(int n)
 	i = 10;
 	if (n < 0)
 	{
-		_putchar('-');
+		putchar('-');
 		n = -n;
 	}
 	count = 0;
@@ -22,7 +22,7 @@ int print_number(int n)
 		{
 			i = i / 10;
 			j = n / i;
-			_putchar('0' + ((j < 10) ? j : 1));
+			putchar('0' + ((j < 10) ? j : 1));
 			n = n % i;
 		}
 		count++;
