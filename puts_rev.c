@@ -3,6 +3,8 @@
 /**
  * puts_rev - prints a string, in reverse, followed by a new line
  * @s: string to be printed
+ *
+ * Return: length of printed string
  */
 int puts_rev(char *s)
 {

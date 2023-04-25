@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * specifier - ...
+ *
+ * @spec: ...
+ * @ptr: ...
+ * Return: int
+ */
 int specifier(const char *spec, va_list *ptr)
 {
 	int count;
@@ -8,7 +15,7 @@ int specifier(const char *spec, va_list *ptr)
 	switch (spec[0])
 	{
 	case 'c':
-		count = _putchar(va_arg(*ptr, int));
+		count = _putchar(va_arg(*ptr, int)) + 1;
 		break;
 	case 'd':
 	case 'i':
@@ -28,6 +35,28 @@ int specifier(const char *spec, va_list *ptr)
 	case 's':
 		count = _puts(va_arg(*ptr, char *));
 		break;
+	default:
+		count = specifier2(spec, ptr);
+		break;
+	}
+
+	return (count - 1);
+}
+
+/**
+ * specifier2 - ...
+ *
+ * @spec: ...
+ * @ptr: ...
+ * Return: int
+ */
+int specifier2(const char *spec, va_list *ptr)
+{
+	int count;
+
+	count = 0;
+	switch (spec[0])
+	{
 	case 'u':
 		break;
 	case 'x':
@@ -39,7 +68,7 @@ int specifier(const char *spec, va_list *ptr)
 	case 'n':
 		break;
 	case '%':
-		count = _putchar('%');
+		count = _putchar('%') + 1;
 		break;
 	case 'r':
 		count = puts_rev(va_arg(*ptr, char *));
@@ -47,10 +76,7 @@ int specifier(const char *spec, va_list *ptr)
 	case 'R':
 		count = rot13(va_arg(*ptr, char *));
 		break;
-
-	default:
-		break;
 	}
 
-	return (count);
+	return (count - 1);
 }

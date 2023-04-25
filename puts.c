@@ -4,6 +4,8 @@
 /**
  * _puts - prints a string followed by a newline
  * @str: string to be printed
+ *
+ * Return: length of printed string
  */
 int _puts(char *str)
 {
