@@ -29,5 +29,5 @@ int rot13(char *str)
 		}
 	}
 
-	return (i - 1);
+	return (i);
 }

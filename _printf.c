@@ -29,11 +29,11 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-			count += specifier(&format[i], &arg_ptr) - 1;
+			count += (specifier(&format[i], &arg_ptr) - 2);
 		}
 	}
 
 	va_end(arg_ptr);
-	count += i - 1;
+	count += i;
 	return (count);
 }
