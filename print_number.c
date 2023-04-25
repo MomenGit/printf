@@ -11,12 +11,13 @@ int print_number(int n)
 	int i, j, count;
 
 	i = 10;
+	count = 0;
 	if (n < 0)
 	{
 		_putchar('-');
 		n = -n;
+		count++;
 	}
-	count = 0;
 	while (i > 1)
 	{
 		if (n > i)
@@ -27,8 +28,8 @@ int print_number(int n)
 			j = n / i;
 			_putchar('0' + ((j < 10) ? j : 1));
 			n = n % i;
+			count++;
 		}
-		count++;
 	}
 
 	return (count);
