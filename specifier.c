@@ -76,6 +76,9 @@ int specifier2(const char *spec, va_list *ptr)
 	case 'R':
 		count = rot13(va_arg(*ptr, char *));
 		break;
+	default:
+		count = _putchar(spec[-1]) + _putchar(spec[0]) + 1;
+		break;
 	}
 
 	return (count - 1);
