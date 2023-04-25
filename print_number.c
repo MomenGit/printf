@@ -3,9 +3,9 @@
  * print_number - description
  * @n: input integer
  */
-void print_number(int n)
+int print_number(int n)
 {
-	int i, j;
+	int i, j, count;
 
 	i = 10;
 	if (n < 0)
@@ -13,7 +13,7 @@ void print_number(int n)
 		_putchar('-');
 		n = -n;
 	}
-
+	count = 0;
 	while (i > 1)
 	{
 		if (n > i)
@@ -25,5 +25,8 @@ void print_number(int n)
 			_putchar('0' + ((j < 10) ? j : 1));
 			n = n % i;
 		}
+		count++;
 	}
+
+	return (count);
 }

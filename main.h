@@ -9,9 +9,9 @@ char *flagger(char *flag);
 char *width(char *n);
 char *precision(char *exp);
 char *length(char *n);
-void puts_rev(char *s);
-void _puts(char *str);
-void rot13(char *str);
-void print_number(int n);
-void numbers_printer(int n);
+int puts_rev(char *s);
+int _puts(char *str);
+int rot13(char *str);
+int print_number(int n);
+int numbers_printer(int n);
 #endif
