@@ -12,5 +12,5 @@ char *length(char *n);
 int puts_rev(char *s);
 int _puts(char *str);
 int rot13(char *str);
-int print_number(int n);
+int print_number(int n, int count);
 #endif
